@@ -22,5 +22,5 @@ vSTD = std(Est,[],2);
 AbsErr = abs(Ref-Est);
 
 STD = mean(vSTD)
-RMSE = mean(mean(AbsErr.^2))
+RMSE = sqrt(mean(mean(AbsErr.^2)))
 Err95 = prctile(AbsErr(:),95)

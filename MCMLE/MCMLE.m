@@ -1,4 +1,6 @@
-function [MT,R,Iter] = MCMLE(pMAT,W,p,k,eps,L,RMax,FrobM, Qi)
+function [MT,R,Iter] = MCMLE(pMAT,W,p,eps,L,RMax,Qi)
+
+k = 1;
 
 global Q
 
@@ -6,7 +8,7 @@ if isempty(Q)
  Q = 1.4;
 end
 
-if nargin < 9
+if nargin < 8
  Qi = Q;
 end
 

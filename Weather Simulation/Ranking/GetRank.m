@@ -18,12 +18,6 @@ if nargin < 3
     
 end
 
-if nargin < 4
-    
-    Path = 'C:\Users\Tal\Documents\TAU\Thesis\Data Base\Weather\Processed';
-    
-end
-
 if nargin < 5
     
     RMax = -1;
@@ -81,7 +75,6 @@ States = T(1,2:end);
 States(LinesToRemove) = [];
 
 eps  = 0.000001;
-k    = 1;
 
 NTeams = size(M,1);
 
@@ -106,7 +99,7 @@ else
 end
 
 if strcmp(RankType, 'MCMLE')
-    [MT,R,~] = MCMLE(P,W,pObs,k,eps,NG,RMax,0);
+    [MT,R,~] = MCMLE(P,W,pObs,eps,NG,RMax);
     WVal = GetRankingFromRatios(MT);
 else if strcmp(RankType, 'SMLE')        
     max_L = ceil(max(max(NG(NG > 0))));
